@@ -1,0 +1,31 @@
+{% extends "carsapp/base.html" %}
+{% block content %}
+<div class="card shadow-sm mx-auto" style="max-width:600px;">
+  <div class="card-body">
+    <h3 class="text-center text-success mb-4">➕ Add New Car</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Car Name</label>
+        <input type="text" name="carname" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Brand</label>
+        <input type="text" name="carbrand" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Model</label>
+        <input type="text" name="carmodel" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="text" name="carprice" class="form-control" required>
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success">Save Car</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

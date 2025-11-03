@@ -1,0 +1,28 @@
+{% extends "carsapp/base.html" %}
+{% block content %}
+<div class="card shadow-sm mx-auto" style="max-width:600px;">
+  <div class="card-body">
+    <h3 class="text-center text-secondary mb-4">🔍 Search Car</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="input-group mb-3">
+        <input type="text" name="carname" class="form-control" placeholder="Enter car name" required>
+        <button class="btn btn-secondary" type="submit">Search</button>
+      </div>
+    </form>
+
+    {% if searched %}
+      {% if car %}
+      <table class="table table-bordered text-center">
+        <tr><th>Name</th><td>{{ car.carname }}</td></tr>
+        <tr><th>Brand</th><td>{{ car.carbrand }}</td></tr>
+        <tr><th>Model</th><td>{{ car.carmodel }}</td></tr>
+        <tr><th>Price</th><td>{{ car.carprice }}</td></tr>
+      </table>
+      {% else %}
+      <div class="alert alert-warning text-center">Car not found.</div>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

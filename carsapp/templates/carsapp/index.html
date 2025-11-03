@@ -1,0 +1,18 @@
+{% extends "carsapp/base.html" %}
+{% block content %}
+<div class="text-center">
+  <h1 class="mb-4 fw-bold text-primary">🚗 Welcome to Cars Management System</h1>
+  <p class="lead mb-5">Manage your car database with Django CRUD.</p>
+
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <a href="{% url 'createcar' %}" class="btn btn-success btn-lg px-4">➕ Create</a>
+    <a href="{% url 'readcar' %}" class="btn btn-info btn-lg px-4 text-white">📋 Read</a>
+    <a href="{% url 'updatecar' %}" class="btn btn-warning btn-lg px-4">✏️ Update</a>
+    <a href="{% url 'deletecar' %}" class="btn btn-danger btn-lg px-4">🗑️ Delete</a>
+    <a href="{% url 'searchcar' %}" class="btn btn-secondary btn-lg px-4">🔍 Search</a>
+  </div>
+</div>
+
+
+
+{% endblock %}

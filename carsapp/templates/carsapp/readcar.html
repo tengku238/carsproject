@@ -1,0 +1,36 @@
+{% extends "carsapp/base.html" %}
+{% block content %}
+<h3 class="text-center text-info mb-4">📋 Car List</h3>
+
+{% if cars %}
+<table class="table table-hover table-bordered align-middle shadow-sm">
+  <thead class="table-primary text-center">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Brand</th>
+      <th>Model</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for car in cars %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ car.carname }}</td>
+      <td>{{ car.carbrand }}</td>
+      <td>{{ car.carmodel }}</td>
+      <td>{{ car.carprice }}</td>
+      <td class="text-center">
+        <a href="{% url 'updatecar' %}?carname={{car.carname}}" class="btn btn-warning btn-sm">✏️ Edit</a>
+        <a href="{% url 'deletecar' %}?carname={{car.carname}}" class="btn btn-danger btn-sm">🗑️ Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<div class="alert alert-info text-center">No car data found.</div>
+{% endif %}
+{% endblock %}

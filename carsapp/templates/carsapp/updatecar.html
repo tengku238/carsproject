@@ -1,0 +1,30 @@
+{% extends "carsapp/base.html" %}
+{% block content %}
+<div class="card shadow-sm mx-auto" style="max-width:600px;">
+  <div class="card-body">
+    <h3 class="text-center text-warning mb-4">✏️ Update Car</h3>
+    <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Car Name (must exist)</label>
+        <input type="text" name="carname" value="{{ request.GET.carname }}" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">New Brand</label>
+        <input type="text" name="carbrand" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">New Model</label>
+        <input type="text" name="carmodel" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">New Price</label>
+        <input type="text" name="carprice" class="form-control">
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-warning">Update</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

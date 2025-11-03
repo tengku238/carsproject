@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars CRUD App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        footer {
+            margin-top: auto;
+            background: #0d6efd;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+        
+         nav.navbar {
+      background: linear-gradient(90deg, #0d6efd, #0b5ed7);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">🚗 Cars CRUD</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'createcar' %}">Create</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'readcar' %}">Read</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'updatecar' %}">Update</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'deletecar' %}">Delete</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'searchcar' %}">Search</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container py-4">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} text-center">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    {% block content %}{% endblock %}
+</div>
+
+<footer>
+        <!-- Footer -->
+    <footer class="text-center text-lg-start bg-dark text-white mt-5 shadow-lg rounded-top">
+        <div class="container p-4 pb-0">
+            <div class="row">
+
+                <!-- Kolom kiri -->
+                <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-3 text-start">
+                    <h5 class="text-uppercase fw-bold mb-3">🚗 Car Project</h5>
+                    <p class="text-secondary">
+                        A simple yet powerful CRUD web app built with Flask and Bootstrap.
+                        Manage your car data effortlessly — Create, Read, Update, Delete, and Search.
+                    </p>
+                </div>
+
+                <!-- Kolom kanan -->
+                <div class="col-md-6 col-lg-6 col-xl-6 mx-auto mt-3 text-end">
+                    <h6 class="text-uppercase fw-bold mb-3">Connect with us</h6>
+                    <a href="https://github.com/tengku238" class="text-white me-3"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-envelope"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-globe"></i></a>
+                </div>
+            </div>
+
+            <hr class="my-3">
+
+            <!-- Copyright -->
+            <div class="text-center py-3 text-secondary">
+                © 2025 Car Project | Built with ❤️ using Flask & Bootstrap
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Optional JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Smooth Scroll Animation -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const footer = document.querySelector("footer");
+        footer.style.opacity = 0;
+        footer.style.transition = "opacity 1.2s ease";
+        setTimeout(() => footer.style.opacity = 1, 400);
+      });
+    </script>
+</html>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% block extra_scripts %}{% endblock %}
+</body>
+</html>
